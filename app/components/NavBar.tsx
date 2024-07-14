@@ -9,7 +9,9 @@ import { ThemeContext } from '../context/theme';
 
 //NavBar Component Function
 const NavBar = () => {
+//Destructuring 
 const {theme,switchLight,switchDark} = useContext(ThemeContext) ;
+
       return (
           <section>
               <div className='h-20 bg-white dark:bg-slate-900'>
@@ -21,13 +23,14 @@ const {theme,switchLight,switchDark} = useContext(ThemeContext) ;
   
   
       <div className='flex gap-x-6 mt-8'>
-   
+   {/* Theme Logic*/}
    {
-      theme === 'dark' ? (<MdOutlineLightMode onClick={switchLight} size={26} color={'white'}/>) : (
-         <MdDarkMode  onClick={switchDark} size={26}/>
+      theme === 'dark' ? (<MdOutlineLightMode className='cursor-pointer' onClick={switchLight} size={26} color={'white'}/>) : (
+         <MdDarkMode className='cursor-pointer'  onClick={switchDark} size={26}/>
       )  
    }
-          
+
+  {/*Shopping Cart*/}        
   <Link href="/cart" ><FaShoppingCart size={26}  className=" text-blue-700 hover:text-blue-800"/></Link></div>
   </div>
              

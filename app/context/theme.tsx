@@ -11,17 +11,20 @@ import { createContext, ReactNode, useState } from "react";
 
 //ThemeProvider Function
 const ThemeProvider = ({ children }: { children: ReactNode }) => {
+    //State For theme Management
     const [theme, setTheme] = useState('dark');
 
+    //Function For Light theme
     const switchLight = () => {
         setTheme('light');
     }
 
+    //Function For Dark theme
     const switchDark = () => {
         setTheme('dark');
     }
 
-    return (
+    return (        
         <ThemeContext.Provider value={{ theme, switchLight, switchDark }}>
             <div className={`${theme}`}>{children}</div>
         </ThemeContext.Provider>
