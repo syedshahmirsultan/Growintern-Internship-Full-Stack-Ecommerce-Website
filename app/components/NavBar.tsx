@@ -13,7 +13,7 @@ const NavBar = () => {
 const {theme,switchLight,switchDark} = useContext(ThemeContext) ;
 
       return (
-          <section>
+          <section className='sticky top-0 z-20'>
               <div className='h-20 bg-white dark:bg-slate-900'>
               <div className='w-full  pr-4 pl-4 md:max-w-6xl mx-auto  flex justify-between'>
                   {/* Logo */}
