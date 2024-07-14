@@ -5,7 +5,7 @@ import ProductsSection from "./components/ProductsSection";
 export default function Home() {
 
   return (
-    <main className="h-full w-full">
+    <main className="bg-white dark:bg-slate-900">
       <Hero/>
       <ProductsSection/>
     </main>
