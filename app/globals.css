@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@keyframes slide-out {
+/* @keyframes slide-out {
     from {
       transform: translateX(0);
       opacity: 1;
@@ -32,3 +32,6 @@
     animation: slide-in 1s forwards;
   }
   
+
+
+ */

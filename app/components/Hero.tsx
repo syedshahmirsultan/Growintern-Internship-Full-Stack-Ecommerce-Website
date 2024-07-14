@@ -12,7 +12,7 @@ const Hero = () => {
     useEffect(() => {
       const timer = setTimeout(() => {
         setCurrentImageIndex((i :number) => (i == imagesUrl.length -1 ? 0 : i+1))
-      }, 1000);
+      }, 3000);
 
       return ()=> clearInterval(timer);
 
@@ -20,11 +20,11 @@ const Hero = () => {
 
 //return Statement
     return (
-        <section className='w-full h-[500px]'>
+        <section className='w-full h-[300px]'>
         
         <div className="relative " key={currentImageIndex}>
     <Image src={imagesUrl[currentImageIndex]} alt="Background Image" width={1000} height={1000} className=' w-full h-full object-cover'/>
-  <div className='absolute bottom-2 md:bottom-20 w-24 h-12 text-md  rounded-md left-0  md:w-52 md:h-24 dark:bg-slate-900 dark:text-white bg-white text-gray-900 md:text-3xl font-bold flex justify-center items-center'>
+  <div className='absolute bottom-1 md:bottom-20 w-[88px] h-[36px] cursor-pointer dark:hover:bg-slate-900 text-sm  rounded-md left-0  md:w-52 md:h-20 dark:bg-slate-950 dark:text-white hover:bg-gray-100/90 bg-white text-gray-900 md:text-3xl font-bold flex justify-center items-center'>
 Shop Now
   </div>
         </div>
