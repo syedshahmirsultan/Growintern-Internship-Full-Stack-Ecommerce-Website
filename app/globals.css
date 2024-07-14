@@ -2,36 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @keyframes slide-out {
-    from {
-      transform: translateX(0);
-      opacity: 1;
-    }
-    to {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-  }
-  
-  @keyframes slide-in {
-    from {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  
-  .slide-out {
-    animation: slide-out 1s forwards;
-  }
-  
-  .slide-in {
-    animation: slide-in 1s forwards;
-  }
-  
-
-
- */

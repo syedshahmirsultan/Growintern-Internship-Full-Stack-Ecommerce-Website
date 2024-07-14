@@ -28,7 +28,7 @@ const {theme,switchLight,switchDark} = useContext(ThemeContext) ;
       )  
    }
           
-  <Link href="/cart" ><FaShoppingCart size={26}  className=" text-blue-500 hover:text-blue-700"/></Link></div>
+  <Link href="/cart" ><FaShoppingCart size={26}  className=" text-blue-700 hover:text-blue-800"/></Link></div>
   </div>
              
               
