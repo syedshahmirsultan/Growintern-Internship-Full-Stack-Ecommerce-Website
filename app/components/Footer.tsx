@@ -37,7 +37,7 @@ const iconsData = [
         <section className=' w-full h-[900px] md:h-[350px] bg-black overflow-x-hidden'>
             <div className="pr-4 pl-4 pt-12 md:p-12  md:max-w-7xl md:mx-auto grid gap-y-16 grid-cols-1 md:grid-cols-2 md:justify-between">
         {/* Column 1*/}
-        <div className="w-[130%] flex flex-col gap-y-10 md:gap-y-0  md:flex-row gap-x-10 md:gap-x-24">
+        <div className="w-[130%] flex flex-col ml-20 md:ml-0 gap-y-10 md:gap-y-0  md:flex-row gap-x-10 md:gap-x-24">
         <ul className="flex flex-col gap-y-2 text-white font-semibold text-md">
         <li className='cursor-pointer'>FIND A STORE</li>   
         <li className='cursor-pointer'>BECOME A PARTNER</li> 
