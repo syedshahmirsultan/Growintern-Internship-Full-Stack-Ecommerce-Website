@@ -1,7 +1,7 @@
 import BriefProduct from "@/app/components/BriefProduct";
 import getAllProducts, { detailOfSingleProduct } from "@/app/utils/apiCalling";
 import allProductType, { singleProductType } from "@/types";
-
+import React from "react";
 
 
 
@@ -21,20 +21,24 @@ export async function generateStaticParams(){
 
 //Generate MetaData Function is responsible to generate the title of the page
 export async function generateMetadata({params}:{params :{slug :string}}){
-    const slug = params.slug;
-    const detail = await detailOfSingleProduct(slug) as singleProductType;
+    
+    const detail = await detailOfSingleProduct(params.slug) as allProductType;
     return{
-     title : detail.productname,
+     title : detail.result[0].productname,
     }  
 }
 
 
 //Brief Function
-export async function Brief({slug}:{slug:string}){
-    const data = await detailOfSingleProduct(slug) as singleProductType;
+export async function Brief({params} :{params :{slug:string}}){
+    const slug = params.slug;
+    const data = await detailOfSingleProduct(slug);
 
     {/* BriefProduct*/}
     return (  
- <BriefProduct productData={data}/>
+ <BriefProduct productData={data.result[0]}/>
     )
 }
+
+export default Brief;
+
