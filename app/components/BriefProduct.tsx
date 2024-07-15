@@ -6,7 +6,7 @@ import { urlForImage } from '@/sanity/lib/image';
 // BriefProduct Component Function
 const BriefProduct = ({productData}:{productData :singleProductType}) => {
     return (
-        <section className="w-full bg-white dark:bg-slate-900 h-auto pt-8 pb-20 ">
+        <main className="w-full bg-white dark:bg-slate-900 h-auto pt-8 pb-20 ">
         <div className='w-full mt-6 mb-12 p-6 md:p-0 md:max-w-6xl md:mx-auto flex flex-col gap-y-8 md:flex-row md:gap-x-16'>
      {/* Product Image */}
     <Image src={urlForImage(productData.image[0])} alt={productData.productname} width={620} height={620} className=' border border-gray-100/90 rounded-md cursor-pointer'/>
@@ -27,7 +27,7 @@ const BriefProduct = ({productData}:{productData :singleProductType}) => {
         </div> 
         </div>
             
-        </section>
+        </main>
     );
 }
 

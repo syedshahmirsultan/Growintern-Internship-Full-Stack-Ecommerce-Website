@@ -21,8 +21,8 @@ export async function generateStaticParams(){
 
 //Generate MetaData Function is responsible to generate the title of the page
 export async function generateMetadata({params}:{params :{slug :string}}){
-    
-    const detail = await detailOfSingleProduct(params.slug) as allProductType;
+    const slug = params.slug;
+    const detail = await detailOfSingleProduct(slug) as allProductType;
     return{
      title : detail.result[0].productname,
     }  

@@ -4,8 +4,11 @@ import "./globals.css";
 import NavBar from "./components/NavBar";
 import ThemeProvider from "./context/theme";
 import Footer from "./components/Footer";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 const inter = Inter({ subsets: ["latin"] });
+const {getUser} = getKindeServerSession();
+const user = await getUser();
 
 export const metadata: Metadata = {
   title: "Ecommerce Website",
@@ -22,7 +25,7 @@ export default function RootLayout({
       <body className={inter.className}>
         
       <ThemeProvider>
-        <NavBar/>{children}<Footer/></ThemeProvider></body>
+        <NavBar user={user}/>{children}<Footer/></ThemeProvider></body>
     </html>
   );
 }
