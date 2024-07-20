@@ -30,7 +30,7 @@ export async function generateMetadata({params}:{params :{slug :string}}){
 
 
 //Brief Function
-export async function Brief({params} :{params :{slug:string}}){
+ async function Brief({params} :{params :{slug:string}}){
     const slug = params.slug;
     const data = await detailOfSingleProduct(slug);
 
