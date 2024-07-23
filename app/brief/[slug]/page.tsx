@@ -1,6 +1,7 @@
 import BriefProduct from "@/app/components/BriefProduct";
 import getAllProducts, { detailOfSingleProduct } from "@/app/utils/apiCalling";
 import allProductType, { singleProductType } from "@/types";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import React from "react";
 
 
@@ -33,10 +34,12 @@ export async function generateMetadata({params}:{params :{slug :string}}){
  async function Brief({params} :{params :{slug:string}}){
     const slug = params.slug;
     const data = await detailOfSingleProduct(slug);
+    const {getUser} = getKindeServerSession();
+    const user = await getUser();
 
     {/* BriefProduct*/}
     return (  
- <BriefProduct productData={data.result[0]}/>
+ <BriefProduct productData={data.result[0]} user={user}/>
     )
 }
 

@@ -1,10 +1,40 @@
+"use client"
 import { singleProductType } from '@/types';
 import React from 'react';
 import Image from 'next/image';
 import { urlForImage } from '@/sanity/lib/image';
+import { useToast } from '@/components/ui/use-toast';
+import { addToCartApiCall } from '../utils/apiCalling';
+import { KindeUser } from '@kinde-oss/kinde-auth-nextjs/types';
 
 // BriefProduct Component Function
-const BriefProduct = ({productData}:{productData :singleProductType}) => {
+const BriefProduct = ({productData,user}:{productData :singleProductType, user:KindeUser|null}) => {
+
+    const { toast } = useToast();
+  async function handleAddToCart() {
+      if (user) {
+          try {
+              await addToCartApiCall(user.id, productData._id);
+              toast({
+                  title: "Successfully",
+                  description: "Added to Cart Successfully!"
+              });
+          } catch (error) {
+              toast({
+                  title: "Unsuccessfully",
+                  description: "Cannot Add to Cart Successfully!",
+                  variant: "destructive"
+              });
+          }
+      } else {
+          toast({
+              title: "Error",
+              description: "Please SignIn or SignUp first!",
+              variant: "destructive"
+          });
+      }
+  }
+
     return (
         <main className="w-full bg-white dark:bg-slate-900 h-auto pt-8 pb-20 ">
         <div className='w-full mt-6 mb-12 p-6 md:p-0 md:max-w-6xl md:mx-auto flex flex-col gap-y-8 md:flex-row md:gap-x-16'>
@@ -23,7 +53,7 @@ const BriefProduct = ({productData}:{productData :singleProductType}) => {
          <p className='mt-2 text-gray-950 font-medium text-md dark:text-white'>{productData.DescriptionText}</p> 
         </div>
         {/* Button */}
-        <button className='px-8 mt-4 md:mt-2 dark:font-bold font-semibold py-4 flex justify-center bg-slate-950 text-white dark:text-gray-950 text-lg dark:bg-white dark:hover:bg-gray-100/90 rounded-md hover:bg-slate-900 '>Add to Cart</button>
+        <button onClick={handleAddToCart} className='px-8 mt-4 md:mt-2 dark:font-bold font-semibold py-4 flex justify-center bg-slate-950 text-white dark:text-gray-950 text-lg dark:bg-white dark:hover:bg-gray-100/90 rounded-md hover:bg-slate-900 '>Add to Cart</button>
         </div> 
         </div>
             

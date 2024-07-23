@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar";
 import ThemeProvider from "./context/theme";
 import Footer from "./components/Footer";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 const {getUser} = getKindeServerSession();
@@ -23,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        
+        <Toaster/>
       <ThemeProvider>
         <NavBar user={user}/>{children}<Footer/></ThemeProvider></body>
     </html>

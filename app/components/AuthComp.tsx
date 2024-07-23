@@ -28,7 +28,7 @@ const AuthComp = ({user}: { user: KindeUser | null}) => {
         {
            user ? (
            <div>
-            <LogoutLink className='text-gray-950 font-semibold hover:text-gray-800 text-xs dark:hover:text-gray-100/90 dark:text-white'>Log out</LogoutLink>
+            <LogoutLink className='text-gray-950 px-1.5 py-1.5 font-semibold hover:text-gray-800 text-xs dark:hover:text-gray-100/90 dark:text-white'>Log out</LogoutLink>
             </div>
             ) :(
         <div className=" flex gap-x-2">
