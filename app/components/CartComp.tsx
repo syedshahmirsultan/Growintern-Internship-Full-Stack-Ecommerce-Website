@@ -1,12 +1,10 @@
-"use client"
-
 import { typeOfCart } from "@/lib/drizzle";
 import { urlForImage } from "@/sanity/lib/image";
-import { singleProductType } from "@/types";
+import { singleProductType } from "@/types"; // Fixed import
 import { KindeUser } from "@kinde-oss/kinde-auth-nextjs/types";
 import { Link, Trash2, ClockIcon } from "lucide-react";
 import { useState, useEffect } from "react";
-import { handleDelete } from "../utils/apiCalling";
+import { getProductFromIdCart, handleDelete } from "../utils/apiCalling";
 import Pricing from "./Pricing";
 import Quantity from "./Quantity";
 import Image from "next/image";
@@ -23,19 +21,18 @@ const CartComp = ({ data, user }: { data: typeOfCart[], user: KindeUser }) => {
     }, [data]);
 
     const dataGetter = async () => {
-        const productPromise = data.map((item) => productFromIdCart(item.productid));
+        const productPromise = data.map((item) => getProductFromIdCart(item.productid));
 
         try {
             const products = await Promise.all(productPromise);
 
-            const validProductData: singleProductType[] = products.map((item) => ({
-                price: item.result[0]?.price,
-                productname: item.result[0]?.productname,
-                sellername: item.result[0]?.sellername,
+            const validProductData = products.map((item:singleProductType) => ({
+                price: item.price,
+                productname: item.productname,
                 slug: item.slug,
-                descriptionText: item.result[0]?.descriptionText,
-                image: item.result[0]?.image,
-                _id: item.result[0]?._id,
+                descriptionText: item.DescriptionText,
+                image: item.image,
+                _id: item._id,
             }));
 
             setProductData(validProductData);
@@ -86,7 +83,7 @@ const CartComp = ({ data, user }: { data: typeOfCart[], user: KindeUser }) => {
                                 alt="Product Image"
                                 className="object-cover"
                             />
-                            <Quantity data={data[index]} item={item} user={user}/>
+                            <Quantity data={data[index]} item={item} user={user} />
                         </div>
                         <p className="text-lg text-gray-900 font-extrabold ml-2">
                             ${item.price}
