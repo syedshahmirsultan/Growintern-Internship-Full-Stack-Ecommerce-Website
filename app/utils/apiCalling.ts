@@ -1,3 +1,4 @@
+import refreshData from "./action";
 
 
 //GetAllProducts Function
@@ -35,3 +36,63 @@ if(!res.ok){
 return res.json();
 
 }
+
+
+export async function getAllCartProductsByUserid(userid:string){
+  const res = await fetch(`https://shahmir-full-stack-online-marketplace.vercel.app/api/cartFunc?userid=${userid}`)
+  
+  if(!res.ok){
+     return "Error"
+  }
+  
+  return res.json();
+  
+  }
+
+
+  export async function addToCartApiCall(userid: string, productid: string) {
+    const payload = {
+        userid: userid,
+        productid: productid,
+        quantity: 1
+    };
+
+    const res = await fetch(`https://shahmir-full-stack-online-marketplace.vercel.app/api/cartFunc`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+    });
+
+    if (!res.ok) {
+        const error = await res.json();
+        throw new Error(error.message || "Failed to add to cart");
+    }
+
+    return "Okay";
+}
+
+ 
+
+
+export async function updateCartItem(userid:string,productid:string,quantity:number){
+    const res = await fetch(`https://shahmir-full-stack-online-marketplace.vercel.app/api/cartFunc`,{
+       method :"PUT",
+       body :JSON.stringify({
+          userid:userid,
+          productid:productid,
+          quantity: quantity
+       })
+    })
+ 
+    await refreshData();
+ }
+
+ export async function handleDelete(userid:string,productid:string){
+    const res = await fetch(`https://shahmir-full-stack-online-marketplace.vercel.app/api/cartFunc?userid=${userid}&productid=${productid}`,{
+ method :"DELETE"
+    })
+    await refreshData();
+    
+ }
