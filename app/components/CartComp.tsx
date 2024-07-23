@@ -1,6 +1,6 @@
 import { typeOfCart } from "@/lib/drizzle";
 import { urlForImage } from "@/sanity/lib/image";
-import { singleProductType } from "@/types"; // Fixed import
+import { singleProductType } from "@/types"; // Correct import
 import { KindeUser } from "@kinde-oss/kinde-auth-nextjs/types";
 import { Link, Trash2, ClockIcon } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -26,13 +26,14 @@ const CartComp = ({ data, user }: { data: typeOfCart[], user: KindeUser }) => {
         try {
             const products = await Promise.all(productPromise);
 
-            const validProductData = products.map((item:singleProductType) => ({
+            const validProductData: singleProductType[] = products.map((item: singleProductType) => ({
                 price: item.price,
                 productname: item.productname,
                 slug: item.slug,
-                descriptionText: item.DescriptionText,
+                DescriptionText: item.DescriptionText, // Correct case for DescriptionText
                 image: item.image,
                 _id: item._id,
+                producttype: item.producttype 
             }));
 
             setProductData(validProductData);
