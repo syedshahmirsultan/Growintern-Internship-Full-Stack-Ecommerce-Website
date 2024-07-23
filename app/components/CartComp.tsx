@@ -1,3 +1,4 @@
+"use client"
 import { typeOfCart } from "@/lib/drizzle";
 import { urlForImage } from "@/sanity/lib/image";
 import { singleProductType } from "@/types"; // Correct import
