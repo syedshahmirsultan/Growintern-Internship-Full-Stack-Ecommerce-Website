@@ -1,5 +1,4 @@
 'use client';
-
 import Link from 'next/link';
 import { FaShoppingCart } from "react-icons/fa";
 import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
