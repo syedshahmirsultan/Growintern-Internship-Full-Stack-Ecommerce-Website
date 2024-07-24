@@ -1,16 +1,18 @@
-"use client"
-import React, { useState, useEffect } from 'react';
+'use client';
+
 import { typeOfCart } from "@/lib/drizzle";
 import { urlForImage } from "@/sanity/lib/image";
 import { singleProductType } from "@/types";
 import { KindeUser } from "@kinde-oss/kinde-auth-nextjs/types";
-import { Link, Trash2, ClockIcon } from "lucide-react";
+import Link from 'next/link';
+import { Trash2, Clock } from "lucide-react";
+import { useState, useEffect } from "react";
 import { getProductFromIdCart, handleDelete } from "../utils/apiCalling";
 import Pricing from "./Pricing";
 import Quantity from "./Quantity";
 import Image from "next/image";
 
-const CartComp = ({ data, user }: { data: typeOfCart[], user: KindeUser|null }) => {
+const CartComp = ({ data, user }: { data: typeOfCart[], user: KindeUser | null }) => {
     const [productData, setProductData] = useState<singleProductType[]>([]);
 
     useEffect(() => {
@@ -21,19 +23,20 @@ const CartComp = ({ data, user }: { data: typeOfCart[], user: KindeUser|null }) 
         }
     }, [data]);
 
-     function dataGetter(){
+    const dataGetter = async () => {
         const productPromise = data.map((item) => getProductFromIdCart(item.productid));
 
         try {
+            const products = await Promise.all(productPromise);
 
-            const validProductData: singleProductType[] = productPromise.map((item) => ({
-                price: item.result[0]?.price,
-                productname: item.result[0]?.productname,
-                slug: item.result[0]?.slug,
-                DescriptionText: item.result[0]?.DescriptionText,
-                image: item.result[0]?.image,
-                _id:item.result[0]?._id,
-                producttype:item.result[0]?.producttype 
+            const validProductData = products.map((item: singleProductType) => ({
+                price: item.price,
+                productname: item.productname,
+                slug: item.slug,
+                DescriptionText: item.DescriptionText,
+                image: item.image,
+                _id: item._id,
+                producttype: item.producttype
             }));
 
             setProductData(validProductData);
@@ -91,7 +94,7 @@ const CartComp = ({ data, user }: { data: typeOfCart[], user: KindeUser|null }) 
                         </p>
                         <div className="flex justify-between items-center flex-wrap">
                             <div className="flex items-center">
-                                <ClockIcon size={16} className="mr-1 text-blue-800" />
+                                <Clock size={16} className="mr-1 text-blue-800" />
                                 <p className="text-md text-blue-700 font-bold">Estimated Delivery:</p>
                                 <p className="text-md text-gray-950 font-semibold ml-1">5 Working Days</p>
                             </div>
