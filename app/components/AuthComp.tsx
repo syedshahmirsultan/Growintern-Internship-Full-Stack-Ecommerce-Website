@@ -13,7 +13,7 @@ const AuthComp = ({user}: { user: KindeUser | null}) => {
       <div className='hidden md:flex ml-10'>
         {
            user ? (
-           <div>
+           <div className="flex gap-x-2">
             <LogoutLink className="md:px-4 md:py-1.5 px-2 py-1 text-xs md:text-sm rounded-md bg-slate-950 hover:bg-slate-900 dark:hover:bg-gray-100/90 dark:bg-white dark:text-gray-950 font-semibold  text-white">Log out</LogoutLink>
             </div>
             ) :(

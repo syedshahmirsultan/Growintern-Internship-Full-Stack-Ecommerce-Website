@@ -4,14 +4,14 @@ import { typeOfCart } from '@/lib/drizzle';
 import { singleProductType } from '@/types'; // Fixed import
 import { updateCartItem } from '../utils/apiCalling';
 
-const Quantity = ({ data, item, user }: { data: typeOfCart | undefined, item: singleProductType, user: KindeUser }) => {
+const Quantity = ({ data, item, user }: { data: typeOfCart | undefined, item: singleProductType, user: KindeUser|null }) => {
     const quantity = data?.quantity ?? 0;
 
     return (
         <div className="flex justify-between">
             <div className="flex gap-2 items-center text-lg">
                 <button
-                    onClick={() => updateCartItem(user.id as string, item._id, quantity - 1)}
+                    onClick={() => updateCartItem(user?.id as string, item._id, quantity - 1)}
                     className="select-none cursor-pointer flex justify-center items-center w-10 h-10 rounded-full bg-gray-200"
                 >
                     -
@@ -20,7 +20,7 @@ const Quantity = ({ data, item, user }: { data: typeOfCart | undefined, item: si
                     {quantity}
                 </p>
                 <button
-                    onClick={() => updateCartItem(user.id as string, item._id, quantity + 1)}
+                    onClick={() => updateCartItem(user?.id as string, item._id, quantity + 1)}
                     className="select-none cursor-pointer flex justify-center items-center w-10 h-10 rounded-full bg-gray-200"
                 >
                     +

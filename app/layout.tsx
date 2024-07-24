@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "./components/NavBar";
 import ThemeProvider from "./context/theme";
 import Footer from "./components/Footer";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { Toaster } from "@/components/ui/toaster";
+import { KindeUser } from "@kinde-oss/kinde-auth-nextjs/types";
+import { Metadata } from "next";
 
-const inter = Inter({ subsets: ["latin"] });
 const {getUser} = getKindeServerSession();
-const user = await getUser();
+const user:KindeUser|null = await getUser();
 
 export const metadata: Metadata = {
   title: "Ecommerce Website",
@@ -23,9 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Toaster/>
+      <body>
       <ThemeProvider>
+        <Toaster/>
         <NavBar user={user}/>{children}<Footer/></ThemeProvider></body>
     </html>
   );
