@@ -13,6 +13,7 @@ const NavBar = ({ user }: { user: KindeUser | null }) => {
   // Destructuring
   const { theme, switchLight, switchDark } = useContext(ThemeContext);
 
+  //Return Statement
   return (
     <section className='sticky top-0 z-20'>
       <div className='h-20 bg-white dark:bg-slate-900'>

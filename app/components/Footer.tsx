@@ -1,37 +1,10 @@
+import { iconsData } from '@/data';
 import Link from 'next/link';
 import React from 'react';
-import { FaFacebookF, FaGithub, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 
 
 //Footer Component Function
 const Footer = () => {
-
-
-const iconsData = [
-    {
-       href:"https://www.linkedin.com/in/syedshahmirsultan/",
-       icon:<FaInstagram size={22} color='black'/> 
-    },
-    {
-        href:"https://www.linkedin.com/in/syedshahmirsultan/",
-        icon:<FaLinkedinIn size={22} color='black'/> 
-     },
-     {
-        href:"https://www.facebook.com/profile.php?id=100093155077830",
-        icon:<FaFacebookF size={22} color='black' /> 
-     },
-     {
-        href:"https://github.com/syedshahmirsultan",
-        icon:<FaGithub  size={22} color='black'/> 
-     },
-     {
-        href:"https://www.linkedin.com/in/syedshahmirsultan/",
-        icon:<FaYoutube  size={22} color='black'/> 
-     }
-]
-
-
-
 
     return (
         <section className=' w-full h-[900px] md:h-[350px] bg-black overflow-x-hidden'>

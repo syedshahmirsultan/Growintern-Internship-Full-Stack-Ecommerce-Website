@@ -9,8 +9,9 @@ import { KindeUser } from '@kinde-oss/kinde-auth-nextjs/types';
 
 // BriefProduct Component Function
 const BriefProduct = ({productData,user}:{productData :singleProductType, user:KindeUser|null}) => {
+ const { toast } = useToast();
 
-    const { toast } = useToast();
+ //HandleAddToCart Function
   async function handleAddToCart() {
       if (user) {
           try {
