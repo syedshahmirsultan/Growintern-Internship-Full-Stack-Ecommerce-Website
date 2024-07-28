@@ -5,8 +5,8 @@ import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
 import AuthComp from './AuthComp';
 
 import { KindeUser } from '@kinde-oss/kinde-auth-nextjs/types';
-import { ThemeContext } from '../context/theme';
 import React, { useContext } from 'react';
+import { ThemeContext } from '@/context/Theme';
 
 // NavBar Component Function
 const NavBar = ({ user }: { user: KindeUser | null }) => {
