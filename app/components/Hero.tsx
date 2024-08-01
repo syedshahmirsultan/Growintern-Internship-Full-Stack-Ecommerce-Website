@@ -36,7 +36,7 @@ const Hero = () => {
                     priority
                 />
             ))}
-            <div className='absolute top-32 md:top-[400px]  left-0 md:left-10 w-[88px] h-[36px] cursor-pointer dark:hover:bg-slate-900 text-sm rounded-sm md:rounded-md md:w-52 md:h-20 dark:bg-slate-950 dark:text-white hover:bg-gray-100/90 bg-white text-gray-900 md:text-3xl font-bold flex justify-center items-center'>
+            <div className='absolute top-32 md:top-[400px]  left-0 w-[88px] h-[36px] cursor-pointer dark:hover:bg-slate-900 text-sm rounded-sm md:rounded-md md:w-52 md:h-20 dark:bg-slate-950 dark:text-white hover:bg-gray-100/90 bg-white text-gray-900 md:text-3xl font-bold flex justify-center items-center'>
                 Shop Now
             </div>
         </section>
