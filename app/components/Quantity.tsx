@@ -9,19 +9,19 @@ const Quantity = ({ data, item, user }: { data: typeOfCart | undefined, item: si
 
     return (
         <div className="flex justify-between">
-            <div className="flex gap-2 items-center text-lg">
+            <div className="flex ml-1 md:gap-2 items-center text-lg">
                 <button
                     onClick={() => updateCartItem(user?.id as string, item._id, quantity - 1)}
-                    className="select-none cursor-pointer flex justify-center items-center w-10 h-10 rounded-full bg-gray-200"
+                    className="select-none cursor-pointer flex justify-center items-center w-8 h-8 md:w-10 md:h-10 rounded-full bg-gray-200"
                 >
                     -
                 </button>
-                <p className="ring-sky-200 rounded-md cursor-pointer flex justify-center text-lg h-8 w-8">
+                <p className="ring-sky-200 rounded-md cursor-pointer flex justify-center dark:text-white text-lg h-8 w-8">
                     {quantity}
                 </p>
                 <button
                     onClick={() => updateCartItem(user?.id as string, item._id, quantity + 1)}
-                    className="select-none cursor-pointer flex justify-center items-center w-10 h-10 rounded-full bg-gray-200"
+                    className="select-none cursor-pointer flex justify-center items-center w-8 h-8 md:w-10 md:h-10 rounded-full bg-gray-200"
                 >
                     +
                 </button>

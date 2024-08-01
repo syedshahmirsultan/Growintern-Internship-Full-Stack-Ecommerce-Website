@@ -10,10 +10,10 @@ const CartMain = ({user,data}:{user:KindeUser|null, data:typeOfCart[]}) => {
     
     if (!user) {
         return (
-            <div className="h-48 flex items-center justify-center">
+            <div className="h-48 flex dark:bg-slate-800 items-center justify-center">
                 <LoginLink className="flex gap-x-2 md:gap-x-4">
                     <LuLogIn color={'blue'} size={30} />
-                    <h2 className='text-xl md:text-2xl font-semibold text-black-700'> Please Login to View your Cart</h2>
+                    <h2 className='text-xl md:text-2xl font-semibold text-black-700 dark:text-white'> Please Login to View your Cart</h2>
                 </LoginLink>
             </div>
         );
