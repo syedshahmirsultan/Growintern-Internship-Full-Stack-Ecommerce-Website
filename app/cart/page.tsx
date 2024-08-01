@@ -48,9 +48,9 @@ const Cart = async () => {
 
 
     return (
-        <>
+        <div className="bg-white dark:bg-slate-800">
             <CartMain user={user} data={data} />
-        </>
+        </div>
     );
 }
 

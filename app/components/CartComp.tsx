@@ -61,15 +61,15 @@ const CartComp = ({ data, user }: { data: typeOfCart[], user: KindeUser | null }
     }
 
     return (
-        <section className="lg:ml-20 ml-2 lg:mb-60 mb-80 w-full p-4 bg-white dark:bg-slate-800 md:max-w-6xl">
-            <h1 className="text-slate-800 dark:text-white font-bold text-3xl mx-auto flex justify-center lg:justify-start mb-12 mt-12">
+        <section className="lg:ml-20 ml-2 lg:pb-60 pb-80 w-full p-4 bg-white dark:bg-slate-800 md:max-w-6xl">
+            <h1 className="text-slate-800 dark:text-white font-bold text-center text-3xl md:text-5xl  mb-16 mt-12">
                 Shopping Cart
             </h1>
             <div className="grid lg:grid-cols-2 gap-4">
                 {productData.map((item, index: number) => (
-                    <div key={index} className="flex flex-col gap-4 border border-white shadow-sm rounded-lg p-4 relative">
+                    <div key={index} className="flex flex-col bg-white gap-4 border border-white shadow-sm rounded-lg p-4 relative">
                         <div className="flex justify-between items-center">
-                            <h2 className="text-lg lg:text-xl text-slate-800 dark:text-white font-bold">
+                            <h2 className="text-lg lg:text-xl text-slate-800  font-bold">
                                 {item.productname}
                             </h2>
                             <Trash2
@@ -91,14 +91,14 @@ const CartComp = ({ data, user }: { data: typeOfCart[], user: KindeUser | null }
                             )}
                             <Quantity data={data[index]} item={item} user={user} />
                         </div>
-                        <p className="text-lg text-gray-900 dark:text-white font-extrabold ml-2">
+                        <p className="text-lg text-gray-900  font-extrabold ml-2">
                             ${item.price}
                         </p>
                         <div className="flex justify-between items-center flex-wrap">
                             <div className="flex items-center">
                                 <Clock size={16} className="mr-1 text-blue-800" />
                                 <p className="text-md text-blue-700 font-bold">Estimated Delivery:</p>
-                                <p className="text-md text-gray-950 dark:text-white font-semibold ml-1">5 Working Days</p>
+                                <p className="text-md text-gray-950 font-semibold ml-1">5 Working Days</p>
                             </div>
                         </div>
                     </div>

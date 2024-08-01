@@ -16,7 +16,7 @@ const Quantity = ({ data, item, user }: { data: typeOfCart | undefined, item: si
                 >
                     -
                 </button>
-                <p className="ring-sky-200 rounded-md cursor-pointer flex justify-center dark:text-white text-lg h-8 w-8">
+                <p className=" ring-sky-200 rounded-md cursor-pointer flex justify-center font-semibold  text-lg h-8 w-8">
                     {quantity}
                 </p>
                 <button
