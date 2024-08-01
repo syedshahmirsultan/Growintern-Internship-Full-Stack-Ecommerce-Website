@@ -141,14 +141,14 @@ const CartComp = ({ data, user }: { data: typeOfCart[], user: KindeUser | null }
         try {
             const products = await Promise.all(productPromise);
 
-            const validProductData = products.map((item: singleProductType) => ({
-                price: item.price,
-                productname: item.productname,
-                slug: item.slug,
-                DescriptionText: item.DescriptionText,
-                image: item.image,
-                _id: item._id,
-                producttype: item.producttype
+            const validProductData:singleProductType[] = products.map((item) => ({
+                price: item.result[0]?.price,
+                productname: item.result[0]?.productname,
+                slug: item.result[0]?.slug,
+                DescriptionText: item.result[0]?.DescriptionText,
+                image: item.result[0]?.image,
+                _id: item.result[0]?._id,
+                producttype: item.result[0]?.producttype
             }));
 
             setProductData(validProductData);

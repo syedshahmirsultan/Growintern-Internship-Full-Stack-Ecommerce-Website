@@ -39,7 +39,9 @@ return res.json();
 
 
 export async function getAllCartProductsByUserid(userid:string){
-  const res = await fetch(`http://localhost:3000/api/cartFunc?userid=${userid}`)
+  const res = await fetch(`http://localhost:3000/api/cartFunc?userid=${userid}`,{
+    cache : "no-store"
+  })
   
   if(!res.ok){
      return "Error"

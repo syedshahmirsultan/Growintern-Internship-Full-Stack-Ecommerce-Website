@@ -2,7 +2,6 @@
 import { typeOfCart } from "@/lib/drizzle";
 import { LoginLink } from "@kinde-oss/kinde-auth-nextjs";
 import { LuLogIn } from "react-icons/lu";
-import { getAllCartProductsByUserid } from "../utils/apiCalling";
 import CartComp from "./CartComp";
 import { KindeUser } from "@kinde-oss/kinde-auth-nextjs/types";
 
