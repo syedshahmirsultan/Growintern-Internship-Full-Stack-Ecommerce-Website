@@ -24,7 +24,7 @@ const Hero = () => {
 
     // Return Statement
     return (
-        <section className='w-full h-[500px] relative overflow-hidden'>
+        <section className='w-full h-[600px] relative overflow-hidden'>
             {imagesUrl.map((url, index) => (
                 <Image
                     key={url}
