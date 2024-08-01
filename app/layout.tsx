@@ -5,7 +5,7 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { Toaster } from "@/components/ui/toaster";
 import { KindeUser } from "@kinde-oss/kinde-auth-nextjs/types";
 import { Metadata } from "next";
-import ThemeProvider from "./context/theme";
+import ThemeProvider from "@/context/Theme";
 
 
 
