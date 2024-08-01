@@ -107,7 +107,7 @@ export async function PUT(req:NextRequest){
 
 export async function DELETE(req: NextRequest) {
     const url = req.nextUrl.searchParams;
-    const { userid, productid } = validateDelete.parse({
+    const { userid,productid } = validateDelete.parse({
       userid: url.get("userid"),
       productid: url.get("productid"),
     });

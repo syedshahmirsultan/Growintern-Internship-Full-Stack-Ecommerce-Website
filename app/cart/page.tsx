@@ -42,8 +42,7 @@ import CartMain from "../components/CartMain";
 const Cart = async () => {
     const { getUser } = getKindeServerSession();
     const user: KindeUser | null = await getUser();
-    
-   
+
     return (
         <>
             <CartMain user={user} />

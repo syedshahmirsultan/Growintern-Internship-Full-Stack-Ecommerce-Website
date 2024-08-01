@@ -11,16 +11,16 @@ const CartMain = async ({user}:{user:KindeUser|null}) => {
     
     if (!user) {
         return (
-            <div className="h-48 flex items-center justify-center gap-x-4">
-                <LoginLink>
+            <div className="h-48 flex items-center justify-center">
+                <LoginLink className="flex gap-x-2 md:gap-x-4">
                     <LuLogIn color={'blue'} size={30} />
-                    <h2 className='text-xl font-semibold text-black-700'>Please Login to View your Cart</h2>
+                    <h2 className='text-xl md:text-2xl font-semibold text-black-700'> Please Login to View your Cart</h2>
                 </LoginLink>
             </div>
         );
     }
 
-    const data: typeOfCart[] = await getAllCartProductsByUserid(user?.id as string);
+    const data: typeOfCart[] = await getAllCartProductsByUserid(user.id as string);
 
     return (
         <>

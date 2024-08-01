@@ -87,6 +87,7 @@ export async function updateCartItem(userid:string,productid:string,quantity:num
     })
  
     await refreshData();
+    res.json();
  }
 
  export async function handleDelete(userid:string,productid:string){
