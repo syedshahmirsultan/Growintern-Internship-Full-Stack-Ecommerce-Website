@@ -32,11 +32,11 @@ const Hero = () => {
                     alt={`Slide Image ${index + 1}`}
                     width={1000}
                     height={1000}
-                    className={`relative top-0 left-0 w-full object-cover md:object-fill transition-opacity duration-1000 ease-in-out ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'}`}
+                    className={`absolute top-0 left-0 w-full object-cover md:object-fill transition-opacity duration-1000 ease-in-out ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'}`}
                     priority
                 />
             ))}
-            <div className='absolute bottom-40 md:bottom-20 left-0 md:left-10 w-[88px] h-[36px] cursor-pointer dark:hover:bg-slate-900 text-sm rounded-sm md:rounded-md md:w-52 md:h-20 dark:bg-slate-950 dark:text-white hover:bg-gray-100/90 bg-white text-gray-900 md:text-3xl font-bold flex justify-center items-center'>
+            <div className='absolute top-40 md:bottom-20 left-0 md:left-10 w-[88px] h-[36px] cursor-pointer dark:hover:bg-slate-900 text-sm rounded-sm md:rounded-md md:w-52 md:h-20 dark:bg-slate-950 dark:text-white hover:bg-gray-100/90 bg-white text-gray-900 md:text-3xl font-bold flex justify-center items-center'>
                 Shop Now
             </div>
         </section>
