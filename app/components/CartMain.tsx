@@ -7,7 +7,7 @@ import CartComp from "./CartComp";
 import { KindeUser } from "@kinde-oss/kinde-auth-nextjs/types";
 
 
-const CartMain = async ({user}:{user:KindeUser|null}) => {
+const CartMain = ({user,data}:{user:KindeUser|null, data:typeOfCart[]}) => {
     
     if (!user) {
         return (
@@ -20,7 +20,6 @@ const CartMain = async ({user}:{user:KindeUser|null}) => {
         );
     }
 
-    const data: typeOfCart[] = await getAllCartProductsByUserid(user.id as string);
 
     return (
         <>

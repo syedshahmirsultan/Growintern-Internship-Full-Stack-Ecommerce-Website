@@ -162,7 +162,7 @@ const CartComp = ({ data, user }: { data: typeOfCart[], user: KindeUser | null }
             <div className="w-full md:max-w-6xl md:mx-auto mt-20">
                 <div className="h-80 bg-gray-100/50 rounded-md w-full p-8 md:p-2 flex flex-col gap-y-4 items-center justify-center">
                     <h2 className="text-2xl md:text-3xl font-bold text-gray-950">Your Cart is Empty</h2>
-                    <Link href="/products" className="mt-4">
+                    <Link href="/" className="mt-4">
                         <button className="bg-gray-950 w-40 h-12 p-2 rounded-md text-white font-semibold text-sm">
                             Start Shopping
                         </button>

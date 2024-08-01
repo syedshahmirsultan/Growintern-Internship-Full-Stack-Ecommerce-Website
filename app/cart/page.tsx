@@ -38,14 +38,18 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { KindeUser } from "@kinde-oss/kinde-auth-nextjs/types";
 
 import CartMain from "../components/CartMain";
+import { typeOfCart } from "@/lib/drizzle";
+import { getAllCartProductsByUserid } from "../utils/apiCalling";
 
 const Cart = async () => {
     const { getUser } = getKindeServerSession();
     const user: KindeUser | null = await getUser();
+    const data: typeOfCart[] = await getAllCartProductsByUserid(user?.id as string);
+
 
     return (
         <>
-            <CartMain user={user} />
+            <CartMain user={user} data={data} />
         </>
     );
 }
