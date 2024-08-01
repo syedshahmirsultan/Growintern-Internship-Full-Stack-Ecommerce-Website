@@ -15,7 +15,7 @@ const ProductGridViewer = ({productData}:{productData:singleProductType[]}) => {
                 productData.map((item:singleProductType)=>{
                     return (
                     <Link href={`/brief/${item.slug.current}`} key={item.slug.current} className='hover:scale-110 duration-300'>
-                    <div className='flex flex-col gap-y-3 h-[400px] border border-white dark:border-none shadow-xs rounded-lg'>
+                    <div className='flex flex-col gap-y-3 h-[400px] border border-white dark:border-none shadow-sm rounded-lg'>
                     <Image src={urlForImage(item.image[0])} alt={item.productname} width={600} height={800} className='w-full h-[80%] object-fill'/>
                     <div className='flex flex-col items-center '><text className="text-gray-950 font-bold text-xl md:text-xl  dark:text-white">{item.productname}</text>
                     <p className='mt-1 text-gray-950 text-md font-extrabold  dark:text-white'>${item.price}.00</p>
