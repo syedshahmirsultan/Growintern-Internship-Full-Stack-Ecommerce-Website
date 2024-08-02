@@ -47,7 +47,7 @@ const CartComp = ({ data, user }: { data: typeOfCart[], user: KindeUser | null }
 
     if (data.length === 0) {
         return (
-            <div className="w-full md:max-w-6xl bg-white dark:bg-slate-800 md:mx-auto mt-20">
+            <div className="w-full md:max-w-6xl bg-white dark:bg-slate-800 md:mx-auto pt-20">
                 <div className="h-80 bg-gray-100/50 dark:bg-slate-800 rounded-md w-full p-8 md:p-2 flex flex-col gap-y-4 items-center justify-center">
                     <h2 className="text-2xl md:text-3xl font-bold text-gray-950 dark:text-white">Your Cart is Empty</h2>
                     <Link href="/" className="mt-4">
